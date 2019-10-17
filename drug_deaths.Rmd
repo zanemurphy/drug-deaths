@@ -1,0 +1,53 @@
+---
+title: "Accidental Drug Related Deaths (in Connecticut?)"
+author: "Zane Murphy"
+date: "10/17/2019"
+output: html_document
+---
+
+Load Libraries
+
+```{r}
+
+library(tidyverse)
+library(lubridate)
+
+```
+
+
+This data was obtained form this [link](https://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015).
+
+```{r}
+
+read.csv(url('https://data.ct.gov/api/views/rybz-nyjw/rows.csv?accessType=DOWNLOAD')) ->
+  drug_deaths
+
+drug_deaths
+
+```
+
+
+## Tidy up the dataset
+
+### Convert ID to an integer and check if it's unique
+
+First check to see if any rows don't have '-' in them:
+
+```{r}
+
+drug_deaths %>%
+  filter(!str_detect(ID, '-')) %>%
+  count
+
+```
+
+
+Now let's convery the ID to an integer by removing the hyphen
+
+
+```{r}
+
+
+
+```
+
